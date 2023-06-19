@@ -65,13 +65,19 @@ export const createQuoteSchema = z.object({
         required_error: 'Quote is required',
         invalid_type_error: 'Quote must be a string',
       })
-      .min(1, { message: 'Quote cannot be empty' }),
+      .trim()
+      .min(1, { message: 'Quote cannot be empty' })
+      .max(255, { message: 'Quote cannot be more than 255 characters long' }),
     speaker: z
       .string({
         required_error: 'Speaker is required',
         invalid_type_error: 'Name of a speaker must be a string',
       })
-      .min(1, { message: 'Name of the speaker cannot be empty' }),
+      .trim()
+      .min(1, { message: 'Name of the speaker cannot be empty' })
+      .max(100, {
+        message: 'Name of the speaker cannot be more than 100 characters long',
+      }),
     language: z.enum(LANGUAGES, {
       errorMap: (issue, ctx) => {
         return { message: 'Please select a valid language from the dropdown' };

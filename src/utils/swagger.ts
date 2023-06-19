@@ -4,7 +4,7 @@ const swaggerJSDocOptions: Options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Test Backend API Docs',
+      title: 'Test Application API Docs',
       version: '1.0.0',
     },
   },
