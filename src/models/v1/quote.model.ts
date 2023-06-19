@@ -40,12 +40,16 @@ const quoteSchema = new Schema<IQuote>(
       required: true,
       trim: true,
       lowercase: true,
+      minLength: 1,
+      maxlength: 255,
     },
     speaker: {
       type: String,
       required: true,
       trim: true,
       lowercase: true,
+      minLength: 1,
+      maxlength: 100,
     },
     language: {
       type: String,

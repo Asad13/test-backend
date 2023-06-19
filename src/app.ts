@@ -3,6 +3,7 @@ import express, {
   type Response,
   type NextFunction,
 } from 'express';
+import path from 'path';
 import compression from 'compression';
 import responseTime from './middlewares/v1/response-time';
 import responseHeaders from './middlewares/v1/response-headers';
@@ -24,9 +25,10 @@ app.use(responseHeaders()); // Adding HTTP response headers
 app.use(compression()); // For compressing the body of the responses
 app.use(express.json({ limit: '5mb' })); // For handling json data
 app.use(express.urlencoded({ extended: true, limit: '10mb' })); // For handling form data
+app.use(express.static(path.join(process.cwd(), 'frontend', 'public'))); // Defining folder containing Static files
 
+/* routes */
 app.use('/api', testApiRouter); // For testing API is working correctly or not
-
 app.use('/api/v1/quotes', v1QuoteRouter); // For handling quotes data
 
 /* Swagger Routes */
@@ -48,6 +50,20 @@ app.use('/api/docs.json', (req: Request, res: Response, next: NextFunction) => {
   } catch (error: any) {
     const err = new CustomError(
       'Error while serving swagger documentation in json format',
+      ErrorCode.INTERNAL_SERVER_ERROR,
+      ErrorType.SERVER
+    );
+    next(err);
+  }
+});
+
+/* Sending the frontend */
+app.use('/*', (req: Request, res: Response, next: NextFunction) => {
+  try {
+    res.sendFile(path.join(process.cwd(), 'frontend', 'pages', 'index.html'));
+  } catch (error) {
+    const err = new CustomError(
+      'Error while serving frontend',
       ErrorCode.INTERNAL_SERVER_ERROR,
       ErrorType.SERVER
     );

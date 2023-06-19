@@ -18,12 +18,10 @@ init()
   .then(() => {
     logger.info('Connected to all the resources...');
 
-    const PORT = process.env.PORT ?? 3001;
+    const PORT = process.env.PORT ?? 3000;
     server = app.listen(PORT, (): void => {
       logger.info(`server listening on port ${PORT}`);
-      console.log(
-        `visit ${process.env.SERVER_URL ?? 'http://localhost:3001/api'}`
-      );
+      console.log(`visit ${process.env.SERVER_URL ?? 'http://localhost:3000'}`);
       if (process.env.NODE_ENV === 'production' && process.send != null) {
         process.send('ready'); // Sending the ready signal to PM2
       }
