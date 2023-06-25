@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { LANGUAGES } from '../../models/v1/quote.model';
+import { LANGUAGES } from '@models/v1/quote.model';
 
 /**
  * @openapi

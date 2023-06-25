@@ -2,10 +2,10 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import app from './app';
-import connectMongodb from './databases/connect-mongodb';
-import setProcessEvents from './utils/process-events';
-import config from './configs/config';
-import logger from './utils/logger';
+import connectMongodb from '@databases/connect-mongodb';
+import setProcessEvents from '@utils/process-events';
+import config from '@configs/config';
+import logger from '@utils/logger';
 import { type Server } from 'http';
 
 const init = async (): Promise<void> => {

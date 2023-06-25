@@ -1,8 +1,6 @@
-import Quote, {
-  type IQuoteInput,
-  type IQuote,
-} from '../../models/v1/quote.model';
-import CustomError, { ErrorCode, ErrorType } from '../../utils/custom-error';
+import Quote from '@models/v1/quote.model';
+import type { IQuoteInput, IQuote } from '@models/v1/quote.model';
+import CustomError, { ErrorCode, ErrorType } from '@utils/custom-error';
 import mongoose from 'mongoose';
 
 export const getQuotes = async (): Promise<IQuote[] | CustomError> => {

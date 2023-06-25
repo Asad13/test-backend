@@ -1,17 +1,14 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { Router } from 'express';
-import validate from '../../middlewares/v1/data-validation';
-import {
-  createQuoteSchema,
-  getQuoteSchema,
-} from '../../schemas/v1/quote.schema';
+import validate from '@middlewares/v1/data-validation';
+import { createQuoteSchema, getQuoteSchema } from '@schemas/v1/quote.schema';
 import {
   getQuotesHandler,
   createQuoteHandler,
   getQuoteHandler,
   updateQuoteHandler,
   deleteQuoteHandler,
-} from '../../controllers/v1/quote.controller';
+} from '@controllers/v1/quote.controller';
 
 const router = Router();
 

@@ -1,6 +1,6 @@
-import { type Request, type Response, type NextFunction } from 'express';
-import CustomError, { ErrorCode, ErrorType } from '../../utils/custom-error';
-import whiteListedOrigins from '../../configs/white-listed-origins';
+import type { Request, Response, NextFunction } from 'express';
+import CustomError, { ErrorCode, ErrorType } from '@utils/custom-error';
+import whiteListedOrigins from '@configs/white-listed-origins';
 
 const responseHeaders =
   () => (req: Request, res: Response, next: NextFunction) => {

@@ -1,5 +1,5 @@
-import { type Request, type Response, type NextFunction } from 'express';
-import logger from '../../utils/logger';
+import type { Request, Response, NextFunction } from 'express';
+import logger from '@utils/logger';
 
 const logResponseTime = (req: Request, start: bigint): void => {
   const end = process.hrtime.bigint();
