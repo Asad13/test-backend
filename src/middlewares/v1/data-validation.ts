@@ -1,6 +1,6 @@
-import { type Request, type Response, type NextFunction } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import { type AnyZodObject } from 'zod';
-import logger from '../../utils/logger';
+import logger from '@utils/logger';
 
 const validate =
   (schema: AnyZodObject) =>

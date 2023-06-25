@@ -1,4 +1,4 @@
-import { type Server } from 'http';
+import type { Server } from 'http';
 
 class Config {
   private _server: Server | null;

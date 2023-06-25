@@ -1,18 +1,18 @@
-import { type Request, type Response, type NextFunction } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import {
   createQuote,
   getQuotes,
   getQuote,
   updateQuote,
   deleteQuote,
-} from '../../services/v1/quote.service';
-import { type IQuoteInput, type IQuote } from '../../models/v1/quote.model';
-import {
-  type TCreateQuoteSchema,
-  type TGetQuoteSchema,
-} from '../../schemas/v1/quote.schema';
+} from '@services/v1/quote.service';
+import type { IQuoteInput, IQuote } from '@models/v1/quote.model';
+import type {
+  TCreateQuoteSchema,
+  TGetQuoteSchema,
+} from '@schemas/v1/quote.schema';
 import _ from 'lodash';
-import CustomError from '../../utils/custom-error';
+import CustomError from '@utils/custom-error';
 
 export const getQuotesHandler = async (
   req: Request,

@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
-import logger from '../utils/logger';
-// import terminator from '../utils/terminator';
+import logger from '@utils/logger';
 
 const connectMongodb = async (): Promise<void> => {
   try {

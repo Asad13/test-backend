@@ -1,22 +1,19 @@
-import express, {
-  type Request,
-  type Response,
-  type NextFunction,
-} from 'express';
+import express from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import compression from 'compression';
-import responseTime from './middlewares/v1/response-time';
-import responseHeaders from './middlewares/v1/response-headers';
-import testApiRouter from './routes/v1/testapi';
-import v1QuoteRouter from './routes/v1/quote';
-import swaggerDoc from './utils/swagger';
+import responseTime from '@middlewares/v1/response-time';
+import responseHeaders from '@middlewares/v1/response-headers';
+import testApiRouter from '@routes/v1/testapi';
+import v1QuoteRouter from '@routes/v1/quote';
+import swaggerDoc from '@utils/swagger';
 import swaggerUi from 'swagger-ui-express';
 import {
   logError,
   clientErrorHandler,
   generalErrorHandler,
-} from './middlewares/v1/error-handler';
-import CustomError, { ErrorCode, ErrorType } from './utils/custom-error';
+} from '@middlewares/v1/error-handler';
+import CustomError, { ErrorCode, ErrorType } from '@utils/custom-error';
 
 const app = express();
 app.use(responseTime()); // Logs response time for http requests

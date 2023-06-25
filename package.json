@@ -1,8 +1,8 @@
 {
-  "name": "test-backend",
+  "name": "test-application",
   "version": "1.0.0",
   "main": "dist/server.js",
-  "description": "A simple backend server to get and save quotes",
+  "description": "A simple web application to get and save quotes",
   "repository": "git@github.com:Asad13/test-backend.git",
   "author": {
     "name": "Asad Mujumder",
@@ -42,6 +42,7 @@
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard-with-typescript": "^35.0.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
@@ -50,16 +51,17 @@
     "openapi-types": ">=7",
     "prettier": "^2.8.8",
     "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "5.0.4"
   },
   "lint-staged": {
-    "src/**/*.ts": "eslint --cache --fix",
-    "*.{ts,css,md}": "prettier --write"
+    "*.ts": "eslint --cache --fix",
+    "*.{ts,css,md,json}": "prettier --write"
   },
   "scripts": {
-    "start": "node dist/server.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "npx tsc",
+    "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/server.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
     "prepare": "husky install"
   },
   "dependencies": {

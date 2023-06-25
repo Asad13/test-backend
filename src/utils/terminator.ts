@@ -1,4 +1,4 @@
-import config from '../configs/config';
+import config from '@configs/config';
 import logger from './logger';
 
 const terminator = (reason: string, isError = false): void => {
