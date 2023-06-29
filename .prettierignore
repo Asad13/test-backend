@@ -3,4 +3,5 @@ dist
 coverage
 logs
 .husky
-.vscode
+**/*.js
+yarn.lock.yaml
