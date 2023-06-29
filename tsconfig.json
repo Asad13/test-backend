@@ -3,6 +3,6 @@
   "compilerOptions": {
     "rootDir": "." /* Specify the root folder within your source files. */
   },
-  "include": ["src/**/*", "index.d.ts", "jest.config.js", "__tests__/**/*"],
+  "include": ["src/**/*", "index.d.ts", "jest.config.ts", "__tests__/**/*"],
   "exclude": ["node_modules", "dist", "coverage"]
 }

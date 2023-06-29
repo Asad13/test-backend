@@ -10,6 +10,19 @@
     "url": "https://asad13.github.io"
   },
   "license": "MIT",
+  "scripts": {
+    "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/server.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "lint": "eslint ./src --max-warnings 0 --report-unused-disable-directives",
+    "lint:fix": "eslint ./src --fix",
+    "format": "prettier --write --ignore-unknown",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix",
+    "*": "prettier --write --ignore-unknown"
+  },
   "keywords": [
     "backend",
     "server",
@@ -30,6 +43,17 @@
     "node": ">=20.0.0"
   },
   "packageManager": "yarn@1.22.19",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.2.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
+    "winston": "^3.9.0",
+    "zod": "^3.21.4"
+  },
   "devDependencies": {
     "@types/compression": "^1.7.2",
     "@types/express": "^4.17.17",
@@ -53,26 +77,5 @@
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "5.0.4"
-  },
-  "lint-staged": {
-    "*.ts": "eslint --cache --fix",
-    "*.{ts,css,md,json}": "prettier --write"
-  },
-  "scripts": {
-    "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/server.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/server.ts",
-    "build": "tsc -p tsconfig.build.json",
-    "prepare": "husky install"
-  },
-  "dependencies": {
-    "compression": "^1.7.4",
-    "dotenv": "^16.1.4",
-    "express": "^4.18.2",
-    "lodash": "^4.17.21",
-    "mongoose": "^7.2.3",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.3",
-    "winston": "^3.9.0",
-    "zod": "^3.21.4"
   }
 }
