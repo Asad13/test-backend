@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "dist/server.js",
   "description": "A simple web application to get and save quotes",
-  "repository": "git@github.com:Asad13/test-backend.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Asad13/test-backend.git",
+    "ssh": "git@github.com:Asad13/test-backend.git"
+  },
   "author": {
     "name": "Asad Mujumder",
     "email": "asaduzzaman.anik.me@gmail.com",
@@ -11,9 +15,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/server.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/server.ts",
-    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "dev": "nodemon",
+    "build": "tspc -p tsconfig.build.json",
     "lint": "eslint ./src --max-warnings 0 --report-unused-disable-directives",
     "lint:fix": "eslint ./src --fix",
     "format": "prettier --write --ignore-unknown",
@@ -72,10 +76,12 @@
     "eslint-plugin-promise": "^6.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
+    "nodemon": "^2.0.22",
     "openapi-types": ">=7",
     "prettier": "^2.8.8",
-    "ts-node-dev": "^2.0.0",
-    "tsconfig-paths": "^4.2.0",
-    "typescript": "5.0.4"
+    "ts-node": "^10.9.1",
+    "ts-patch": "^3.0.1",
+    "typescript": "5.0.4",
+    "typescript-transform-paths": "^3.4.6"
   }
 }
