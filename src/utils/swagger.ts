@@ -1,11 +1,12 @@
 import swaggerJSDoc, { type Options } from 'swagger-jsdoc';
+import { version } from '../../package.json';
 
 const swaggerJSDocOptions: Options = {
   definition: {
     openapi: '3.0.0',
     info: {
       title: 'Test Application API Docs',
-      version: '1.0.0',
+      version,
     },
   },
   apis: ['./src/routes/**/*.ts', './src/schemas/**/*.ts'],
